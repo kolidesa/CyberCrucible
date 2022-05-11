@@ -1,11 +1,12 @@
-package com.example.adamkolidesassignment;
+package com.example.adamkolidesassignment1;
+
+import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.List;
-import org.springframework.data.mongodb.repository.MongoRepository;
 
 
 public interface CourseRepository extends MongoRepository<Course, String> {
-    public Course findByCourseNumber(String courseNumber);
+    public List<Course> findByCourseNumber(String courseNumber);
     public List<Course> findByInstructor(String instructor);
 
 }

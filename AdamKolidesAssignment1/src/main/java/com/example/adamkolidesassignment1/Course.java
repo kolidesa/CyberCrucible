@@ -1,15 +1,24 @@
-package com.example.adamkolidesassignment;
+package com.example.adamkolidesassignment1;
 
 import org.springframework.data.annotation.Id;
 
-public class Course {
+import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
 
+public class Course {
+    private static int id = 1;
     @Id
+    private int courseId;
+    @NotBlank
     private String courseNumber;
+    @NotBlank
     private String courseName;
+    @NotBlank
     private String instructor;
 
     public Course(String courseNumber, String courseName, String instructor) {
+        courseId = id;
+        id++;
         this.courseNumber = courseNumber;
         this.courseName = courseName;
         this.instructor = instructor;
@@ -27,6 +36,8 @@ public class Course {
         return instructor;
     }
 
+    public int getCourseId() { return courseId; }
+
     public void setCourseNumber(String courseNumber) {
         this.courseNumber = courseNumber;
     }
@@ -42,7 +53,7 @@ public class Course {
     @Override
     public String toString() {
         return String.format(
-                "Course[courseNumber=%s, courseName='%s', instructor='%s']",
-                courseNumber, courseName, instructor);
+                "Course[courseId =%s, courseNumber=%s, courseName='%s', instructor='%s']",
+                courseId, courseNumber, courseName, instructor);
     }
 }
